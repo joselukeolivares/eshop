@@ -1,21 +1,23 @@
 import React from 'react'
 import '../styles/global.css'
-import { Layout } from './containers/Layout';
-import { RecoveryPassword } from './containers/RecoveryPassword';
-import { Login } from './containers/Login';
-import {BrowserRouter,Switch,Route} from 'react-router-dom';
+import { Layout } from '../components/containers/Layout';
+import { RecoveryPassword } from '../components/containers/RecoveryPassword';
+import { Login } from '../components/containers/Login';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import {Home} from '../pages/Home'
+import {NotFound} from '../pages/NotFound'
 
 const App=()=>{
     return (
         <BrowserRouter>
-            <Switch>
-                <Layout>
-                    <Route exact path="/" component={<Home/>}/>
-                    <Route exact path="/login" component={<Login />}/>
-                    <Route exact path="/recovery-password" component={<RecoveryPassword />}/>
-                    <Route component={<NotFound/>} />
-                </Layout>
-            </Switch>
+          <Layout>
+            <Routes>
+                    <Route  path="/" element={<Home />}/>
+                    <Route  path="/login" element={<Login />}/>
+                    <Route  path="/recovery-password" element={<RecoveryPassword />}/>                    
+                    <Route path="*" element={<NotFound/>}/>
+            </Routes>
+          </Layout>
         </BrowserRouter>
     )
 }
