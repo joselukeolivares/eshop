@@ -2,13 +2,15 @@ import React from 'react'
 import '../styles/global.css'
 import { Layout } from '../components/containers/Layout';
 import { RecoveryPassword } from '../components/containers/RecoveryPassword';
-import { Login } from '../components/containers/Login';
+import  Login from '../pages/Login';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import {Home} from '../pages/Home'
 import {NotFound} from '../pages/NotFound'
+import {AppContext} from '../context/AppContext'
 
 const App=()=>{
     return (
+      <AppContext.Provider value={}>
         <BrowserRouter>
           <Layout>
             <Routes>
@@ -19,6 +21,8 @@ const App=()=>{
             </Routes>
           </Layout>
         </BrowserRouter>
+      </AppContext.Provider >
+  
     )
 }
 
