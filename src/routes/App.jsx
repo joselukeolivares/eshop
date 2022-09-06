@@ -7,10 +7,12 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import {Home} from '../pages/Home'
 import {NotFound} from '../pages/NotFound'
 import {AppContext} from '../context/AppContext'
+import {useInitialSate} from '../Hooks/useInitialState'
 
 const App=()=>{
+  const {initialState}=useInitialSate()
     return (
-      <AppContext.Provider value={}>
+      <AppContext.Provider value={initialState}>
         <BrowserRouter>
           <Layout>
             <Routes>
